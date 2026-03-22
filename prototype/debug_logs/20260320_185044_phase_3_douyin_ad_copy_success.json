@@ -1,0 +1,57 @@
+{
+  "timestamp": "20260320_185044",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_184930_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "douyin",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Bright",
+      "Vibrant Orange"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty"
+      ],
+      "platform_preferences": {
+        "platform": "taobao|other",
+        "style": "short_video_hook|product_feature_focused|generic",
+        "length": "short|medium",
+        "tone": "warm"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Bright\", \"Vibrant Orange\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"beauty\"]\n   - notes: \n3) Platform preferences:\n   - platform: taobao|other\n   - style: short_video_hook|product_feature_focused|generic\n   - length: short|medium\n   - tone: warm\n\nPlatform rules (platform = \"douyin\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "douyin",
+    "copy": "set to `short`\n- Ensure all required elements and preferences are included\n\n[Short Video Hook]\nGot a sudden craving for some bright vibes? 🌟 Try our Vibrant Orange makeup palette. Youthful colors, bold and true. Swipe right now and see the magic!\n\n[Bullets]\n✨ Youthful Color\n✨ Bright & Vibrant Orange\n✨ Perfect for teen beauty enthusiasts 💅\n\n[Voucher]\nClaim your exclusive offer now! #beautytrend #makeuplove\n\n[Short Video Hook]\nGet ready to shine with vibrant color! 🌈 Dive into our Vibrant Orange makeup palette. Youthful hues that'll turn heads. Click to explore!\n\n[Bullets]\n✨ Youthful Color\n✨ Bright & Vibrant Orange\n✨ Ideal for teen beauty fans 💅\n\n[Voucher]\nUnlock your new look today! #beautygoals #teenbeauty\n\n[Short Video Hook]\nFeeling a bit orangey? 🍊 Our Vibrant Orange palette can change everything! Youthful and bold, perfect for teens. Swipe right now!\n\n[Bullets]\n✨ Youth"
+  },
+  "normalized_result": {
+    "platform": "douyin",
+    "copy": "set to `short`\n- Ensure all required elements and preferences are included\n\n[Short Video Hook]\nGot a sudden craving for some bright vibes? 🌟 Try our Vibrant Orange makeup palette. Youthful colors, bold and true. Swipe right now and see the magic!\n\n[Bullets]\n✨ Youthful Color\n✨ Bright & Vibrant Orange\n✨ Perfect for teen beauty enthusiasts 💅\n\n[Voucher]\nClaim your exclusive offer now! #beautytrend #makeuplove\n\n[Short Video Hook]\nGet ready to shine with vibrant color! 🌈 Dive into our Vibrant Orange makeup palette. Youthful hues that'll turn heads. Click to explore!\n\n[Bullets]\n✨ Youthful Color\n✨ Bright & Vibrant Orange\n✨ Ideal for teen beauty fans 💅\n\n[Voucher]\nUnlock your new look today! #beautygoals #teenbeauty\n\n[Short Video Hook]\nFeeling a bit orangey? 🍊 Our Vibrant Orange palette can change everything! Youthful and bold, perfect for teens. Swipe right now!\n\n[Bullets]\n✨ Youth"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "timestamp": "20260320_225258",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_225153_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "youtube",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Bright",
+      "Vibrant Orange"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty"
+      ],
+      "platform_preferences": {
+        "platform": "xiaohongshu",
+        "style": "storytelling_lifestyle|short_video_hook|product_feature_focused|generic",
+        "length": "short",
+        "tone": "warm"
+      },
+      "notes": "Likely teen audience, mainly beauty_oriented. Key interests/signals: beauty.",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Bright\", \"Vibrant Orange\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"beauty\"]\n   - notes: Likely teen audience, mainly beauty_oriented. Key interests/signals: beauty.\n3) Platform preferences:\n   - platform: xiaohongshu\n   - style: storytelling_lifestyle|short_video_hook|product_feature_focused|generic\n   - length: short\n   - tone: warm\n\nPlatform rules (platform = \"youtube\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is youtube: use a creator-style hook + concise call-to-action; can include one line break structure.\n- If platform is instagram: visually-driven tone, concise and trendy, include 3-8 hashtags.\n- If platform is tiktok: viral short-hook style, energetic, punchy, CTA for interaction.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Do NOT mention other platforms (e.g. if platform is xiaohongshu, do not mention taobao/douyin)\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "youtube",
+    "copy": "- Stick to `tone` preference\n\n🌟 Discover the Vibrant Orange Glow for Teenagers! 🌟\n\nStep into a world where every moment shines brighter. Introducing our **Vibrant Orange** shade, perfect for teens who want to stand out in their unique way. Perfectly bright and youthful, it’s like the sun on a clear day, always there to make you feel alive.\n\n✨ Swipe right now to see how it transforms your skin into a radiant masterpiece! ✨\n\n#beauty #youngskin #glowup #orange #teenbeauty #bright #vibrant #beautylove #youthful #sunshine\n\n---\n\n🌟 Discover the Vibrant Orange Glow for Teenagers! 🌟\n\nStep into a world where every moment shines brighter. Introducing our **Vibrant Orange** shade, perfect for teens who want to stand out in their unique way. Perfectly bright and youthful, it’s like the sun on a clear day, always there to make you feel alive.\n\n✨ Swipe right now to see how it transforms your skin"
+  },
+  "normalized_result": {
+    "platform": "youtube",
+    "copy": "- Stick to `tone` preference\n\n🌟 Discover the Vibrant Orange Glow for Teenagers! 🌟\n\nStep into a world where every moment shines brighter. Introducing our **Vibrant Orange** shade, perfect for teens who want to stand out in their unique way. Perfectly bright and youthful, it’s like the sun on a clear day, always there to make you feel alive.\n\n✨ Swipe right now to see how it transforms your skin into a radiant masterpiece! ✨\n\n#beauty #youngskin #glowup #orange #teenbeauty #bright #vibrant #beautylove #youthful #sunshine"
+  }
+}

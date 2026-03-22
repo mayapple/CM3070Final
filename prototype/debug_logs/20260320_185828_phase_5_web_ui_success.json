@@ -1,0 +1,56 @@
+{
+  "timestamp": "20260320_185828",
+  "input": {
+    "uploaded_image_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/uploads/20260320_185828_image_01_001.jpg",
+    "platforms": [
+      "xiaohongshu"
+    ]
+  },
+  "output": {
+    "phase0_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_185830_phase_0_image_analyzer_success.json",
+    "phase1_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_185832_phase_1_audience_analyzer_success.json",
+    "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_185832_phase_2_selling_point_match_success.json",
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty",
+        "fitness"
+      ],
+      "platform_preferences": {
+        "platform": "taobao|other",
+        "style": "short_video_hook|product_feature_focused|generic",
+        "length": "medium|long",
+        "tone": "energetic|informative"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    },
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Comfortable Touch",
+      "Bright"
+    ],
+    "copies": [
+      {
+        "platform": "xiaohongshu",
+        "copy_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_185832_phase_3_xiaohongshu_ad_copy_success.json",
+        "copy_text": "✨ Discover the vibrant glow of youth with our new skin care line! 🌟\n\n✨ Feel the comfort of smooth, soft touch every day. 💖\n\n✨ Illuminate your journey with bright, natural colors. ✨\n\n✨ For the beauty lover on the go, this is your new best friend. 💪\n\n✨ Brighten up your skincare routine with our innovative formulas. 🌈\n\n✨ From morning makeup to night-time serums, we've got you covered. 💄\n\n✨ Get ready to embrace a brighter, more radiant you! 🌋\n\n🌟 #BeautyGoals #NaturalLuminosity #SkinNourishment #HealthyRadiance #GlowUp #SelfLove"
+      }
+    ]
+  }
+}

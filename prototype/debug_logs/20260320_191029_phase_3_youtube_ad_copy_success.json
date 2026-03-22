@@ -1,0 +1,58 @@
+{
+  "timestamp": "20260320_191029",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_190924_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "youtube",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Comfortable Touch",
+      "Bright"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty",
+        "fitness"
+      ],
+      "platform_preferences": {
+        "platform": "taobao",
+        "style": "short_video_hook|product_feature_focused",
+        "length": "short",
+        "tone": "neutral"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Comfortable Touch\", \"Bright\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"beauty\", \"fitness\"]\n   - notes: \n3) Platform preferences:\n   - platform: taobao\n   - style: short_video_hook|product_feature_focused\n   - length: short\n   - tone: neutral\n\nPlatform rules (platform = \"youtube\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is youtube: use a creator-style hook + concise call-to-action; can include one line break structure.\n- If platform is instagram: visually-driven tone, concise and trendy, include 3-8 hashtags.\n- If platform is tiktok: viral short-hook style, energetic, punchy, CTA for interaction.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Do NOT mention other platforms (e.g. if platform is xiaohongshu, do not mention taobao/douyin)\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "youtube",
+    "copy": "🌟 Youthful Color & Comfortable Touch | Brighten Your Life! 💃\n\n🌟 Feel Fresh & Radiant in Our New Collection! 🌟\n\n✨ Swipe Up to Shop Now! ✨\n\n[Line Break]\n\nDiscover why our products are perfect for teens like you:\n• Youthful color that's fun and trendy\n• Ultra-comfortable for all-day wear\n• Bright & bold, making every moment shine 💡\n\n#Beauty #Fitness #TeenStyle #NewArrivals #YouthfulColor #ComfortableTouch #BrighteningYourDay #ShopNow\n\n---\n\n🌟 Youthful Color & Comfortable Touch | Brighten Your Life! 💃\n\n🌟 Feel Fresh & Radiant in Our New Collection! 🌟\n\n✨ Swipe Up to Shop Now! ✨\n\n[Line Break]\n\nGot a teen beauty enthusiast on your list? 🎁\n• Vibrant hues that pop against any outfit\n• Soft fabrics that hug all the right places\n• The perfect blend of style and comfort 💥\n\n#Beauty #Fitness #TeenStyle #NewArr"
+  },
+  "normalized_result": {
+    "platform": "youtube",
+    "copy": "🌟 Youthful Color & Comfortable Touch | Brighten Your Life! 💃\n\n🌟 Feel Fresh & Radiant in Our New Collection! 🌟\n\n✨ Swipe Up to Shop Now! ✨\n\n[Line Break]\n\nDiscover why our products are perfect for teens like you:\n• Youthful color that's fun and trendy\n• Ultra-comfortable for all-day wear\n• Bright & bold, making every moment shine 💡\n\n#Beauty #Fitness #TeenStyle #NewArrivals #YouthfulColor #ComfortableTouch #BrighteningYourDay #ShopNow"
+  }
+}

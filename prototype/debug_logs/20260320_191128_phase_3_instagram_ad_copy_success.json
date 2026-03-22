@@ -1,0 +1,58 @@
+{
+  "timestamp": "20260320_191128",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_190924_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "instagram",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Comfortable Touch",
+      "Bright"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty",
+        "fitness"
+      ],
+      "platform_preferences": {
+        "platform": "taobao",
+        "style": "short_video_hook|product_feature_focused",
+        "length": "short",
+        "tone": "neutral"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Comfortable Touch\", \"Bright\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"beauty\", \"fitness\"]\n   - notes: \n3) Platform preferences:\n   - platform: taobao\n   - style: short_video_hook|product_feature_focused\n   - length: short\n   - tone: neutral\n\nPlatform rules (platform = \"instagram\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is youtube: use a creator-style hook + concise call-to-action; can include one line break structure.\n- If platform is instagram: visually-driven tone, concise and trendy, include 3-8 hashtags.\n- If platform is tiktok: viral short-hook style, energetic, punchy, CTA for interaction.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Do NOT mention other platforms (e.g. if platform is xiaohongshu, do not mention taobao/douyin)\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "instagram",
+    "copy": "specified in platform preferences\n- Keep tone aligned with `tone` preference specified in platform preferences\n\n[Short Video Hook]\n✨Teenagers, want youthful color and comfortable touch? Try our beauty product today! 🌈💖\n\n[Product Feature Focused]\n🌟Bright colors that make you stand out 🌟\n🌈Soft texture for all-day comfort 🌈\n💪Perfect for fitness routines 💪\n\n[Call to Action]\nShop now & see the difference! #Beauty #Fitness #YouthfulColors #ComfortableTouch #Bright #TeenBeauty #TrendyLook\n\n---\n\nThis is your one-off ad copy for Taobao, tailored to resonate with teen beauty-oriented audiences who are into fitness trends. Emphasizes the product's youthful color, comfortable feel, and suitability for active lifestyles. The call to action is clear and direct, encouraging viewers to purchase. The hashtags help categorize the content for easier discovery by potential buyers. Let me know if you need any adjustments or more creative ideas! ✨🌟\n\n---\n\n[Short Video Hook]\n✨Teenagers, get your"
+  },
+  "normalized_result": {
+    "platform": "instagram",
+    "copy": "specified in platform preferences\n- Keep tone aligned with `tone` preference specified in platform preferences\n\n[Short Video Hook]\n✨Teenagers, want youthful color and comfortable touch? Try our beauty product today! 🌈💖\n\n[Product Feature Focused]\n🌟Bright colors that make you stand out 🌟\n🌈Soft texture for all-day comfort 🌈\n💪Perfect for fitness routines 💪\n\n[Call to Action]\nShop now & see the difference! #Beauty #Fitness #YouthfulColors #ComfortableTouch #Bright #TeenBeauty #TrendyLook"
+  }
+}

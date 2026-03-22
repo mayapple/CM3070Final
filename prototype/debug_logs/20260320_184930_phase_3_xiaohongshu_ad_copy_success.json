@@ -1,0 +1,57 @@
+{
+  "timestamp": "20260320_184930",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_184930_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "xiaohongshu",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Bright",
+      "Vibrant Orange"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty"
+      ],
+      "platform_preferences": {
+        "platform": "taobao|other",
+        "style": "short_video_hook|product_feature_focused|generic",
+        "length": "short|medium",
+        "tone": "warm"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Bright\", \"Vibrant Orange\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"beauty\"]\n   - notes: \n3) Platform preferences:\n   - platform: taobao|other\n   - style: short_video_hook|product_feature_focused|generic\n   - length: short|medium\n   - tone: warm\n\nPlatform rules (platform = \"xiaohongshu\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "xiaohongshu",
+    "copy": "**Taobao Ad Copy**\n🌟 Youthful Vibrant Orange – The Bright Glow of Your Perfect Smile!\n✨ Perfect for the beauty-oriented teen. #Beauty #TeenBeauty #VibrantOrange\n\n---\n\n**Douyin Ad Copy**\n>>> Swipe up! Discover how youthful and bright your smile can be in vibrant orange!\n✨ Youthful Orange: Brighten Your Smile & Feel Confident! Benefits:\n- Youthful Glow\n- Bright and Vibrant\n- Perfect for Teens\n\n---\n\n**Xiaohongshu Ad Copy**\n>>> Discover why vibrant orange is the new must-have shade for teens!\n✨ Youthful Vibrant Orange: A Glowing Glow for a Glowing Life!\n- Perfect for teen beauty lovers\n- Bright & Vibrant\n- Youthful and Radiant\n#Beauty #TeenBeauty #VibrantOrange\n\n---\n\n**Other Platform Ad Copy**\n🌟 Youthful Vibrant Orange – The Bright Glow of Your Perfect Smile!\n✨ Perfect for the beauty-oriented teen. #Beauty #TeenBeauty #VibrantOrange\n\n---\n\nThis Taobao ad copy emphasizes"
+  },
+  "normalized_result": {
+    "platform": "xiaohongshu",
+    "copy": "**Taobao Ad Copy**\n🌟 Youthful Vibrant Orange – The Bright Glow of Your Perfect Smile!\n✨ Perfect for the beauty-oriented teen. #Beauty #TeenBeauty #VibrantOrange"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "timestamp": "20260320_184926",
+  "input_image_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/uploads/20260320_184922_image_01_001.jpg",
+  "image_analyzer_result": {
+    "image_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/uploads/20260320_184922_image_01_001.jpg",
+    "extracted_features": {
+      "color": [
+        "Orange",
+        "High Saturation",
+        "High Brightness"
+      ],
+      "texture": [
+        "Medium Texture"
+      ],
+      "shape": [
+        "Rounded Design"
+      ]
+    },
+    "selling_points": [
+      "Vibrant Orange",
+      "Youthful Color",
+      "Bright",
+      "Natural Texture",
+      "Comfortable Touch"
+    ],
+    "processing_time": 0.31,
+    "detailed_features": {
+      "color": {
+        "hue_type": "Orange",
+        "saturation_level": "High Saturation",
+        "brightness_level": "High Brightness"
+      },
+      "texture": {
+        "texture_type": "Medium Texture"
+      },
+      "shape": {
+        "shape_type": "Rounded Design"
+      }
+    }
+  },
+  "selling_points": [
+    "Vibrant Orange",
+    "Youthful Color",
+    "Bright",
+    "Natural Texture",
+    "Comfortable Touch"
+  ]
+}

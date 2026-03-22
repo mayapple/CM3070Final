@@ -1,0 +1,55 @@
+{
+  "timestamp": "20260320_182927",
+  "input": {
+    "uploaded_image_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/uploads/20260320_182927_image_01_001.jpg",
+    "platforms": [
+      "xiaohongshu"
+    ]
+  },
+  "output": {
+    "phase0_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_182929_phase_0_image_analyzer_success.json",
+    "phase1_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_182929_phase_1_audience_analyzer_success.json",
+    "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_182929_phase_2_selling_point_match_success.json",
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "price_sensitive",
+        "beauty_oriented"
+      ],
+      "tags": [
+        "beauty",
+        "fitness"
+      ],
+      "platform_preferences": {
+        "platform": "xiaohongshu|Douyin",
+        "style": "storytelling_lifestyle"
+      },
+      "notes": "...",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    },
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Comfortable Touch",
+      "Bright"
+    ],
+    "copies": [
+      {
+        "platform": "xiaohongshu",
+        "copy_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_182929_phase_3_xiaohongshu_ad_copy_success.json",
+        "copy_text": "of short\n\nHere's a teen-friendly ad for Xiaohongshu:\n\n✨ Discover Youthful Beauty & Comfort on The Glow  \n🌟 Bright, bold hues that catch all eyes 🌈  \n🌸 Soft touch for all-day comfort 🌹  \n💖 Perfect for beauty enthusiasts on a budget 💸  \n\n#Beauty #Fitness #TheGlow"
+      }
+    ]
+  }
+}

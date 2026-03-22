@@ -1,0 +1,87 @@
+{
+  "timestamp": "20260320_184930",
+  "phase1_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_184930_phase_1_audience_analyzer_success.json",
+  "top_k": 3,
+  "selling_points": [
+    "Vibrant Orange",
+    "Youthful Color",
+    "Bright",
+    "Natural Texture",
+    "Comfortable Touch"
+  ],
+  "audience_profile": {
+    "age_group": "teen",
+    "audience_segments": [
+      "beauty_oriented"
+    ],
+    "tags": [
+      "beauty"
+    ],
+    "platform_preferences": {
+      "platform": "taobao|other",
+      "style": "short_video_hook|product_feature_focused|generic",
+      "length": "short|medium",
+      "tone": "warm"
+    },
+    "notes": "",
+    "raw_params": {
+      "selling_points": [
+        "Vibrant Orange",
+        "Youthful Color",
+        "Bright",
+        "Natural Texture",
+        "Comfortable Touch"
+      ],
+      "product_name": null,
+      "product_category": null,
+      "target_platform": "xiaohongshu",
+      "notes": null
+    }
+  },
+  "scoring_details": [
+    {
+      "selling_point": "Vibrant Orange",
+      "score": 0.0,
+      "matched_tags": [],
+      "matched_keywords": []
+    },
+    {
+      "selling_point": "Youthful Color",
+      "score": 1.4,
+      "matched_tags": [
+        "beauty"
+      ],
+      "matched_keywords": [
+        "Color",
+        "Youthful"
+      ]
+    },
+    {
+      "selling_point": "Bright",
+      "score": 1.2,
+      "matched_tags": [
+        "beauty"
+      ],
+      "matched_keywords": [
+        "Bright"
+      ]
+    },
+    {
+      "selling_point": "Natural Texture",
+      "score": 0.0,
+      "matched_tags": [],
+      "matched_keywords": []
+    },
+    {
+      "selling_point": "Comfortable Touch",
+      "score": 0.0,
+      "matched_tags": [],
+      "matched_keywords": []
+    }
+  ],
+  "recommended_selling_points": [
+    "Youthful Color",
+    "Bright",
+    "Vibrant Orange"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "timestamp": "20260320_182438",
+  "backend": "huggingface",
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "generation_config": {
+    "max_new_tokens": 220,
+    "temperature": 0.7,
+    "top_p": 0.9
+  },
+  "phase2_log_path": "/home/lujie/uolProjects/CM3070Final/V1/prototype/debug_logs/20260320_182438_phase_2_selling_point_match_success.json",
+  "input": {
+    "platform": "xiaohongshu",
+    "recommended_selling_points": [
+      "Youthful Color",
+      "Comfortable Touch",
+      "Bright"
+    ],
+    "audience_profile": {
+      "age_group": "teen",
+      "audience_segments": [
+        "beauty_oriented"
+      ],
+      "tags": [
+        "fitness",
+        "beauty"
+      ],
+      "platform_preferences": {
+        "platform": "taobao|other",
+        "style": "product_feature_focused|storytelling_lifestyle",
+        "length": "medium",
+        "tone": "informative"
+      },
+      "notes": "",
+      "raw_params": {
+        "selling_points": [
+          "Vibrant Orange",
+          "Youthful Color",
+          "Bright",
+          "Natural Texture",
+          "Comfortable Touch"
+        ],
+        "product_name": null,
+        "product_category": null,
+        "target_platform": "xiaohongshu",
+        "notes": null
+      }
+    }
+  },
+  "prompt": "You are an expert advertising copywriter.\nWrite ONE platform-specific ad copy using:\n1) Recommended selling points: [\"Youthful Color\", \"Comfortable Touch\", \"Bright\"]\n2) Audience profile:\n   - age_group: teen\n   - audience_segments: [\"beauty_oriented\"]\n   - tags: [\"fitness\", \"beauty\"]\n   - notes: \n3) Platform preferences:\n   - platform: taobao|other\n   - style: product_feature_focused|storytelling_lifestyle\n   - length: medium\n   - tone: informative\n\nPlatform rules (platform = \"xiaohongshu\"):\n- If platform is xiaohongshu: prefer storytelling + lifestyle hook, include 3-6 hashtags at the end.\n- If platform is douyin: prefer short hook + benefit bullets, keep it punchy.\n- If platform is taobao: emphasize value/benefits, clearer CTA, less poetic.\n- If platform is other: generic but still persuasive.\n\nOutput requirements:\n- Return plain ad copy text only\n- Do NOT return JSON\n- Do NOT include explanations about your process\n- Keep length aligned with `length` preference",
+  "raw_model_result": {
+    "platform": "xiaohongshu",
+    "copy": "Here's a sample of the required format:\n\nYouthful color, comfortable touch, and bright appeal. Perfect for teen fitness enthusiasts who care about their appearance. #healthyliving #selfcare #beautyforlife\n\nFor XIAOHONGSHU:\nYouthful color, comfortable touch, and bright appeal. Perfect for teen fitness enthusiasts who care about their appearance. #healthyliving #selfcare #beautyforlife\n\nFor DOUYIN:\nInnovative blend that energizes and looks great. Ideal for teens who sweat it out daily. Bright colors, comfy feel—what more could you ask? #fitnessfaves #glowup #sportybeauty\n\nFor TAOSHI:\nDiscover the perfect fit for your teen’s active lifestyle. With youthful color, comfortable touch, and bright appeal, shine through effortlessly. Elevate your workouts today! Shop now.\n\nFor OTHER:\nElevate your teen's workout wardrobe with our blend of youthful color, comfortable touch, and bright appeal. Ideal for teen fitness fans who want to look as good as they feel"
+  },
+  "normalized_result": {
+    "platform": "xiaohongshu",
+    "copy": "Youthful color, comfortable touch, and bright appeal. Perfect for teen fitness enthusiasts who care about their appearance. #healthyliving #selfcare #beautyforlife\n\nFor XIAOHONGSHU:\nYouthful color, comfortable touch, and bright appeal. Perfect for teen fitness enthusiasts who care about their appearance. #healthyliving #selfcare #beautyforlife\n\nFor DOUYIN:\nInnovative blend that energizes and looks great. Ideal for teens who sweat it out daily. Bright colors, comfy feel—what more could you ask? #fitnessfaves #glowup #sportybeauty\n\nFor TAOSHI:\nDiscover the perfect fit for your teen’s active lifestyle. With youthful color, comfortable touch, and bright appeal, shine through effortlessly. Elevate your workouts today! Shop now.\n\nFor OTHER:\nElevate your teen's workout wardrobe with our blend of youthful color, comfortable touch, and bright appeal. Ideal for teen fitness fans who want to look as good as they feel"
+  }
+}
