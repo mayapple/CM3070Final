@@ -1,105 +1,168 @@
-# MobileNet 图像特征提取原型
+# Ad Copy Studio (CM3070 Final Project · Template 4.1)
 
-## 项目简介
+End-to-end prototype: **product image → selling points → audience profile → ranked points → multi-platform ad copy**, with **timestamped JSON logs** for every stage.
 
-这是一个基于 MobileNet V2 的产品图像特征提取原型，用于从产品图像中自动提取视觉特征并转换为营销卖点。
+| Phase | What it does | Model / technique |
+|-------|----------------|-------------------|
+| **0** | Vision + heuristics → English selling-point phrases | **MobileNet V2** (TensorFlow / Keras) |
+| **1** | Structured **audience JSON** from selling-point text | **Ollama** chat API (`requests`) |
+| **2** | Rank top-*k* selling points vs audience tags | Rule-based matcher (keywords; no extra NN) |
+| **3** | Per-platform ad copy | **Hugging Face** causal LM (PyTorch `transformers`) |
+| **5 (UI)** | Web upload + same orchestration as CLI | `simple_web_ui_phase5.py` (stdlib `http.server`) or optional FastAPI variant |
 
-## 功能特性
+The single integration entry used by both CLI and web is **`run_phase4_for_one_image`** in **`phase4_runner.py`**.
 
-- ✅ 使用 MobileNet V2 提取图像特征
-- ✅ 颜色特征分析（色调、饱和度、亮度）
-- ✅ 纹理特征分析（表面质感）
-- ✅ 形状特征分析（设计风格）
-- ✅ 特征到营销卖点的自动转换
-- ✅ 批量处理支持
-- ✅ 评估功能（需要标注数据）
+---
 
-## 安装依赖
+## Requirements
+
+- **Python** 3.10+ recommended (3.8+ may work; tested with 3.10).
+- **Ollama** running locally for Phase 1 (default chat endpoint `http://localhost:11434/api/chat`).
+- **Disk / RAM** for TensorFlow + first-time Hugging Face model download (default copy model: `Qwen/Qwen2.5-3B-Instruct`).
+- **GPU** optional: TensorFlow and PyTorch can use CPU; expect slower runs on laptops.
+
+---
+
+## Installation
+
+From the `prototype/` directory:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 使用方法
+Pull the Ollama model you will use (defaults below):
 
-### 1. 分析单张图像
+```bash
+ollama pull llama3.2:1b
+```
+
+---
+
+## Environment variables (optional)
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `OLLAMA_ENDPOINT` | Ollama HTTP chat URL | `http://localhost:11434/api/chat` |
+| `OLLAMA_MODEL` | Model name for audience inference | `llama3.2:1b` |
+| `HF_COPY_MODEL` | Hugging Face model id for copy generation | `Qwen/Qwen2.5-3B-Instruct` |
+| `HF_COPY_MAX_NEW_TOKENS` | Max new tokens for copy | `220` |
+| `HF_COPY_TEMPERATURE` | Sampling temperature | `0.7` |
+| `HF_COPY_TOP_P` | Top-*p* sampling | `0.9` |
+| `CM3070_WEB_HOST` | Web UI bind address | `127.0.0.1` |
+| `CM3070_WEB_PORT` | Web UI port | `8000` |
+
+---
+
+## Run the full pipeline (CLI)
+
+**Single image or directory** of images; **comma-separated platforms**:
+
+Allowed platforms: `xiaohongshu`, `douyin`, `taobao`, `youtube`, `instagram`, `tiktok`, `other`.
+
+```bash
+cd prototype
+python run_phase4_cli.py --image-dir /path/to/image.jpg --platforms xiaohongshu,youtube,instagram
+```
+
+Optional: write aggregated JSON to a file:
+
+```bash
+python run_phase4_cli.py --image-dir /path/to/images --platforms taobao --top-k 3 --output-json /tmp/run.json
+```
+
+Equivalent: run **`phase4_runner.py`** directly and print JSON to stdout:
+
+```bash
+python phase4_runner.py --image-dir /path/to/image.jpg --platforms xiaohongshu,douyin --top-k 3
+```
+
+Logs are written under **`prototype/debug_logs/`** (`phase_0_*`, `phase_1_*`, `phase_2_*`, `phase_3_*` per platform).
+
+---
+
+## Run the Web UI (recommended for demo)
+
+**Stdlib server** (no FastAPI required for this entrypoint):
+
+```bash
+cd prototype
+python simple_web_ui_phase5.py
+```
+
+Open **`http://127.0.0.1:8000`** (or your `CM3070_WEB_HOST` / `CM3070_WEB_PORT`).
+
+- Upload an image, select one or more platforms, submit.
+- On success, the UI shows audience, selling points, and tabbed copy; **`debug_logs/*_phase_5_web_ui_success.json`** records the run.
+
+---
+
+## Alternative Web UI (FastAPI)
+
+If you prefer FastAPI + Uvicorn (dependencies in `requirements.txt`):
+
+```bash
+cd prototype
+uvicorn web_ui_phase5:app --host 127.0.0.1 --port 8001
+```
+
+Same backend contract: Phase 4 orchestration via `phase4_runner`.
+
+---
+
+## Artifacts
+
+| Path | Description |
+|------|-------------|
+| `debug_logs/` | Timestamped JSON for phases 0–3 (and web success/error logs) |
+| `uploads/` | Images saved from the web UI when using `simple_web_ui_phase5.py` |
+
+---
+
+## Legacy / Phase-0-only CLI
+
+For **vision-only** analysis (MobileNet + selling points, no LLM stages), the older entry point is still available:
 
 ```bash
 python main.py path/to/image.jpg
+python main.py path/to/folder --batch
 ```
 
-### 2. 批量分析图像目录
+See `main.py` help for batch and evaluation options.
 
-```bash
-python main.py path/to/image/directory --batch
-```
+---
 
-### 3. 保存结果到指定目录
-
-```bash
-python main.py path/to/image.jpg -o results/
-```
-
-### 4. 使用标注数据进行评估
-
-```bash
-python main.py path/to/image/directory --batch -a annotations.json -o results/
-```
-
-## 项目结构
+## Project layout (high level)
 
 ```
 prototype/
-├── main.py                    # 主程序入口
-├── image_analyzer.py          # 图像分析主模块
-├── feature_extractor.py       # 特征提取器（MobileNet）
-├── selling_point_converter.py # 卖点转换器
-├── evaluator.py               # 评估模块
-├── utils.py                   # 工具函数
-└── requirements.txt           # 依赖包
+├── phase4_runner.py          # Core: run_phase4_for_one_image, run_phase4_for_image_dir
+├── run_phase4_cli.py         # Thin CLI wrapper
+├── image_analyzer.py         # Phase 0
+├── feature_extractor.py      # MobileNet features
+├── selling_point_converter.py
+├── audience_analyzer.py      # Phase 1 (Ollama)
+├── selling_point_matcher.py  # Phase 2
+├── copywriter.py             # Phase 3 (HF)
+├── simple_web_ui_phase5.py   # Phase 5 UI (stdlib)
+├── web_ui_phase5.py          # Phase 5 UI (FastAPI, optional)
+├── debug_logs/               # Created at runtime
+├── uploads/                  # Web uploads
+├── main.py                   # Legacy single-stage analyzer
+├── requirements.txt
+└── README.md
 ```
 
-## 输出格式
+---
 
-分析结果以 JSON 格式保存，包含：
+## Troubleshooting
 
-- `image_path`: 图像路径
-- `extracted_features`: 提取的特征（颜色、纹理、形状）
-- `selling_points`: 转换的营销卖点
-- `processing_time`: 处理时间（秒）
-- `detailed_features`: 详细特征信息
+1. **Phase 1 errors** — Ensure Ollama is running (`ollama serve`) and `OLLAMA_MODEL` is pulled.
+2. **Phase 3 slow or OOM** — Use a smaller `HF_COPY_MODEL`, reduce `HF_COPY_MAX_NEW_TOKENS`, or run on GPU if available.
+3. **TensorFlow / CUDA** — CPU execution is supported; first import can be slow.
 
-## 标注文件格式
+---
 
-用于评估的标注文件应为 JSON 格式：
+## Course context
 
-```json
-{
-  "image_001.jpg": {
-    "color_features": ["红色系", "高饱和度", "高亮度"],
-    "texture_features": ["光滑表面"],
-    "shape_features": ["流线型设计"]
-  }
-}
-```
-
-## 注意事项
-
-1. 首次运行时会自动下载 MobileNet V2 预训练模型（约 14MB）
-2. 图像会自动 resize 到 224×224 像素
-3. 支持常见图像格式：JPG, PNG, BMP
-4. 建议使用 GPU 加速（可选，CPU 也可运行）
-
-## 测试
-
-运行各模块的测试：
-
-```bash
-python utils.py
-python feature_extractor.py
-python selling_point_converter.py
-python image_analyzer.py
-python evaluator.py
-```
-
-
+This repository supports **CM3070 Computer Science Final Project — Project Idea 4.1** (*Orchestrating AI models to achieve a goal*): three pre-trained model roles (vision, LLM understanding, text generation) plus explicit orchestration and evaluation artefacts.
